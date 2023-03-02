@@ -13,7 +13,7 @@ df = pd.read_excel("Datasets/main_test.xlsx")
 # df = pd.read_excel("Datasets/main_dataset.xlsx")
 
 # Define attributes to use
-selected_attributes = ['Energia', 'Proteiini (Protein)', 'Time', 'Difficulty Level']
+selected_attributes = ['Energia', 'Proteiini', 'Time', 'Difficulty_Level']
 
 # Normalize attributes
 for attribute in selected_attributes:
@@ -46,7 +46,9 @@ nx.draw_networkx_edges(G, pos, alpha=0.3)
 nodes = nx.draw_networkx_nodes(G, pos, node_size=node_sizes, node_color=node_colors, cmap='coolwarm')
 nx.draw_networkx_labels(G, pos)
 plt.colorbar(nodes)
-
+# nx.write_gpickle(G, "test.gpickle")
+# G1 = nx.path_graph(1000)
+nx.write_gml(G, "Datasets/attributed_graph_test.gml")
 # Set up tkinter window and canvas to display graph
 root = Tk()
 root.title("Graph")
